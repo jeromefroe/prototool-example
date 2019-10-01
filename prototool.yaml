@@ -1,0 +1,19 @@
+protoc:
+  version: 3.8.0
+lint:
+  group: uber2
+create:
+  packages:
+    # Files created in the proto directory will have a root package of "org". As an example, the
+    # file "proto/a/b.proto" will have package "org.a". In a real application one would replace
+    # "org" with the actual name of the organization that is responsible for the proto files.
+    - directory: proto
+      name: org
+generate:
+  go_options:
+    import_path: github.com/jeromefroe/prototool-example
+  plugins:
+    - name: go
+      type: go
+      flags: plugins=grpc
+      output: gen/go

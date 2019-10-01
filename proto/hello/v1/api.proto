@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package org.hello.v1;
+
+option csharp_namespace = "Org.Hello.V1";
+option go_package = "hellov1";
+option java_multiple_files = true;
+option java_outer_classname = "ApiProto";
+option java_package = "com.org.hello.v1";
+option objc_class_prefix = "OHX";
+option php_namespace = "Org\\Hello\\V1";
+
+// API constructs greetings for new users.
+service API {
+  // SayHello greets new users.
+  rpc SayHello (SayHelloRequest) returns (SayHelloResponse) {}
+}
+
+message SayHelloRequest {
+  string name = 1;
+}
+
+message SayHelloResponse {
+  string message = 1;
+}
